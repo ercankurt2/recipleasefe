@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="ReciPlease logo" src="../assets/logo.png" width="250" height="250">
+    <HelloWorld msg="Willkommen bei ReciPlease!"/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+// @ ist ein Alias zu /src
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
