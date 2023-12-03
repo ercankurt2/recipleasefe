@@ -19,20 +19,7 @@ export default {
   name: 'RecipesView',
   data () {
     return {
-      recipes: [
-        {
-          id: 1,
-          title: 'Kartoffelsalat',
-          description: 'Der weltbeste Kartoffelsalat',
-          image: '../assets/kartoffelsalat.jpg'
-        },
-        {
-          id: 2,
-          title: 'Test',
-          description: 'Das ist ein Test',
-          image: '../assets/test.jpg'
-        }
-      ]
+      recipes: []
     }
   },
   methods: {
@@ -43,6 +30,16 @@ export default {
         return require('../assets/test.jpg')
       }
     }
+  },
+  mounted () {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    }
+    fetch('http://localhost:8080/api/rezept', requestOptions)
+      .then(response => response.json())
+      .then(result => result.forEach(recipe => this.recipes.push(recipe)))
+      .catch(error => console.log('error', error))
   }
 }
 </script>
