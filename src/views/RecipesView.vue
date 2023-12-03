@@ -27,9 +27,9 @@ export default {
   methods: {
     getPicture (recipe) {
       if (recipe.id === 1) {
-        return require('../assets/kartoffelsalat.jpg')
+        return require('../assets/kartoffelsalat.png')
       } else if (recipe.id === 2) {
-        return require('../assets/test.jpg')
+        return require('../assets/test.png')
       }
     }
   },
