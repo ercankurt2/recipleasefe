@@ -35,6 +35,7 @@ export default {
   },
   mounted () {
     const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/rezept'
+    console.log(this.recipes)
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
