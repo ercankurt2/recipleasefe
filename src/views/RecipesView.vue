@@ -41,8 +41,11 @@ export default {
       redirect: 'follow'
     }
     fetch(endpoint, requestOptions)
-      .then(response => response.json())
-      .then(result => result.forEach(recipe => this.recipes.push(recipe)))
+      // .then(response => response.json())
+      .then((resp) => {
+        this.recipes = resp.json()
+      })
+      .then()
       .catch(error => console.log('error', error))
   }
 }
