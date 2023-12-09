@@ -12,6 +12,9 @@
         <div class="mb-3">
           <label for="title" class="form-label">Titel</label>
           <input type="text" class="form-control" id="title" v-model="title" required>
+          <div class="valid-feedback">
+            Der Titel sieht gut aus!
+          </div>
           <div class="invalid-feedback">
             Bitte geben Sie einen Titel ein.
           </div>
@@ -19,6 +22,9 @@
         <div class="mb-3">
           <label for="beschreibung" class="form-label">Beschreibung</label>
           <input type="text" class="form-control" id="beschreibung" v-model="beschreibung" required>
+          <div class="valid-feedback">
+            Die Beschreibung sieht gut aus!
+          </div>
           <div class="invalid-feedback">
             Bitte geben Sie eine Beschreibung ein.
           </div>
@@ -31,7 +37,7 @@
           </ul>
         </div>
         <div class="mt-5">
-          <button class="btn btn-primary me-3" type="submit" @click.prevent="createRezept">Erstellen</button>
+          <button class="btn btn-primary me-3" type="submit" @click="createRezept">Erstellen</button>
           <button class="btn btn-danger" type="reset">Zurücksetzen</button>
         </div>
       </form>
@@ -52,7 +58,8 @@ export default {
   emits: ['created'],
   methods: {
     async createRezept () {
-      if (this.validate()) {
+      const valid = this.validate()
+      if (valid) {
         const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/rezept'
 
         const headers = new Headers()
@@ -88,9 +95,24 @@ export default {
       }
     },
     validate () {
-      const form = document.getElementById('recipes-create-form')
-      form.classList.add('was-validated')
-      return form.checkValidity()
+      let valid = true
+
+      const form = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(form)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              valid = false
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+      return valid
     }
   }
 }
