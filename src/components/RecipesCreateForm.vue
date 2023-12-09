@@ -57,7 +57,7 @@ export default {
   },
   emits: ['created'],
   methods: {
-    async createRezept () {
+    createRezept () {
       const valid = this.validate()
       if (valid) {
         const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/rezept'
@@ -65,7 +65,7 @@ export default {
         const headers = new Headers()
         headers.append('Content-Type', 'application/json')
 
-        const rezept = JSON.stringify({
+        const payload = JSON.stringify({
           title: this.title,
           beschreibung: this.beschreibung
         })
@@ -73,34 +73,22 @@ export default {
         const requestOptions = {
           method: 'POST',
           headers: headers,
-          body: rezept,
+          body: payload,
           redirect: 'follow'
         }
 
-        const response = await fetch(endpoint, requestOptions)
-        await this.handleResponse(response)
-      }
-    },
-    async handleResponse (response) {
-      if (response.ok) {
-        this.$emit('created', response.headers.get('location'))
-        document.getElementById('close-offcanvas').click()
-      } else if (response.status === 400) {
-        response = await response.json()
-        response.errors.forEach(error => {
-          this.serverValidationMessages.push(error.defaultMessage)
-        })
-      } else {
-        this.serverValidationMessages.push('Es gab einen Fehler!')
+        fetch(endpoint, requestOptions)
+          .then(response => response.text())
+          .catch(error => console.log('error', error))
       }
     },
     validate () {
       let valid = true
 
-      const form = document.querySelectorAll('.needs-validation')
+      const forms = document.querySelectorAll('.needs-validation')
 
       // Loop over them and prevent submission
-      Array.prototype.slice.call(form)
+      Array.prototype.slice.call(forms)
         .forEach(function (form) {
           form.addEventListener('submit', function (event) {
             if (!form.checkValidity()) {
