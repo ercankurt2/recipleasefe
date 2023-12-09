@@ -1,32 +1,37 @@
 <template>
-  <h1>Das ist eine RecipesView</h1>
-
+  <h1>Rezepte</h1>
   <div class="container-fluid">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-      <div class="col" v-for="recipe in recipes" :key="recipe.id">
-        <div class="card h-100">
-          <img :src="getPicture(recipe)" class="card-img-top" :alt="recipe.titel">
-          <div class="card-body">
-            <h5 class="card-title">{{ recipe.titel }}</h5>
-            <p class="card-text">{{ recipe.beschreibung }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <recipes-card-list :recipes="this.recipes"></recipes-card-list>
   </div>
+  <recipes-create-form @created="addRecipe"></recipes-create-form>
 </template>
 
 <script>
 import axios from 'axios'
+import RecipesCardList from '@/components/RecipesCardList.vue'
+import RecipesCreateForm from '@/components/RecipesCreateForm.vue'
 
 export default {
   name: 'RecipesView',
+  components: {
+    RecipesCardList,
+    RecipesCreateForm
+  },
   data () {
     return {
       recipes: []
     }
   },
   methods: {
+    addRecipe (recipeLocation) {
+      axios.get(`${process.env.VUE_APP_BACKEND_BASE_URL}${recipeLocation}`)
+        .then(response => {
+          this.recipes.push(response.data)
+        })
+        .catch(error => {
+          console.error('Es gab einen Fehler!', error)
+        })
+    },
     getPicture (recipe) {
       if (recipe.rezeptID === 1) {
         return require('../assets/kartoffelsalat.png')
