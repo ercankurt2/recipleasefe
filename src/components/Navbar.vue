@@ -1,4 +1,5 @@
 <template>
+  <!-- Bootstrap Navbar in Anlehnung an: https://getbootstrap.com/docs/5.3/components/navbar/ -->
   <nav class="navbar">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">ReciPlease</a>

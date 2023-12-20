@@ -1,4 +1,5 @@
 <template>
+  <!-- Bootstrap Form in Anlehnung an: https://getbootstrap.com/docs/5.3/forms/layout/ -->
   <button class="btn btn-success sticky-button" data-bs-toggle="offcanvas" data-bs-target="#recipes-create-offcanvas" aria-controls="#recipes-create-offcanvas">
     <i class="fa-solid fa-utensils"></i>
   </button>
