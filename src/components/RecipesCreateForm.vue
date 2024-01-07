@@ -59,28 +59,21 @@ export default {
   emits: ['created'],
   methods: {
     createRezept () {
-      const valid = this.validate()
-      if (valid) {
-        const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/rezept'
-
-        const headers = new Headers()
-        headers.append('Content-Type', 'application/json')
-
-        const payload = JSON.stringify({
+      if (this.validate()) {
+        // Erstellen des Rezept-Objekts
+        const newRecipe = {
+          id: Date.now(), // Verwendung der aktuellen Zeit als einzigartige ID
           title: this.title,
-          beschreibung: this.beschreibung
-        })
-
-        const requestOptions = {
-          method: 'POST',
-          headers: headers,
-          body: payload,
-          redirect: 'follow'
+          beschreibung: this.beschreibung,
+          rezeptID: 3 // Passen Sie diesen Wert entsprechend Ihrer Logik an
         }
 
-        fetch(endpoint, requestOptions)
-          .then(response => response.text())
-          .catch(error => console.log('error', error))
+        // Emit an event with the new recipe
+        this.$emit('created', newRecipe)
+
+        // Zurücksetzen der Formularfelder
+        this.title = ''
+        this.beschreibung = ''
       }
     },
     validate () {
