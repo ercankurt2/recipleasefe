@@ -1,3 +1,4 @@
+import { mount } from '@vue/test-utils'
 import RecipesCardList from "@/components/RecipesCardList.vue";
 import RecipesCard from "@/components/RecipesCard.vue";
 import {options} from "axios";
