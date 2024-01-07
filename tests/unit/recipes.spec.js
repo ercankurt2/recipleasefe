@@ -1,3 +1,4 @@
+import { mount } from '@vue/test-utils'
 import RecipesView from "@/views/RecipesView.vue";
 import RecipesCardList from "@/components/RecipesCardList.vue";
 import RecipesCreateForm from "@/components/RecipesCreateForm.vue";

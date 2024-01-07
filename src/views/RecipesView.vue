@@ -6,7 +6,7 @@
   <recipes-create-form @created="addRecipe"></recipes-create-form>
 </template>
 
-<script>
+<script type ='module'>
 import axios from 'axios'
 import RecipesCardList from '@/components/RecipesCardList.vue'
 import RecipesCreateForm from '@/components/RecipesCreateForm.vue'
