@@ -1,5 +1,6 @@
 import RecipesCardList from "@/components/RecipesCardList.vue";
 import RecipesCard from "@/components/RecipesCard.vue";
+import {options} from "axios";
 
 describe('Testing RecipesCardList.vue', () =>{
   it('should render a recipe card for each recipe', () => {
