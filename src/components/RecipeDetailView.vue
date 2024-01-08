@@ -1,4 +1,5 @@
 <template>
+
   <div class="recipe-detail">
     <h1>{{ recipe.title }}</h1>
     <img :src="getPicture(recipe)" alt="Bild des Rezepts" class="recipe-image">
@@ -26,6 +27,14 @@
         <li v-for="(schritt, index) in recipe.zubereitungsschritte" :key="index">{{ schritt }}</li>
       </ol>
     </div>
+  </div>
+  <!-- Bearbeitungsfunktion -->
+  <button v-if="!isEditing" @click="enableEditing">Bearbeiten</button>
+  <div v-if="isEditing">
+    <input v-model="editableRecipe.title" placeholder="Rezepttitel">
+    <!-- Ähnliche Eingabefelder für andere Rezeptattribute -->
+    <button @click="saveChanges">Änderungen speichern</button>
+    <button @click="cancelEditing">Bearbeitung abbrechen</button>
   </div>
 </template>
 
@@ -68,7 +77,9 @@ export default {
           'Kühl stellen: Lassen Sie den Kartoffelsalat vor dem Servieren mindestens eine Stunde im Kühlschrank durchziehen.'
         ],
         rezeptID: 1
-      }
+      },
+      isEditing: false,
+      editableRecipe: null
     }
   },
   methods: {
@@ -78,6 +89,19 @@ export default {
       } else if (recipe.rezeptID === 2) {
         return require('../assets/test.png')
       }
+    },
+    enableEditing () {
+      this.isEditing = true
+      this.editableRecipe = { ...this.recipe } // Kopie des Rezepts erstellen
+    },
+    saveChanges () {
+      this.isEditing = false
+      this.recipe = { ...this.editableRecipe } // Änderungen speichern
+      this.editableRecipe = null // Zurücksetzen der Bearbeitungskopie
+    },
+    cancelEditing () {
+      this.isEditing = false
+      this.editableRecipe = null // Bearbeitung abbrechen und zurücksetzen
     }
   }
 }
@@ -100,6 +124,44 @@ export default {
 .description-section, .ingredients-section {
   text-align: left;
   margin-bottom: 20px;
+
+  .recipe-detail {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .recipe-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .description-section, .ingredients-section, .preparation-section {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  .description-section h2, .ingredients-section h2, .preparation-section h2 {
+    font-size: 1.5em;
+    color: #4a4a4a;
+  }
+
+  ul, ol {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+  }
+
+  .additional-info p {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+  }
 }
 
 .description-section h2, .ingredients-section h2 {
