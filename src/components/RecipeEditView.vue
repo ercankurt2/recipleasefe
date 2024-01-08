@@ -81,7 +81,7 @@ export default {
   },
   methods: {
     saveRecipe () {
-      // Logik zum Speichern der Änderungen
+      this.$emit('update-recipe', this.editableRecipe)
       this.$router.push({ name: 'RecipeDetail', params: { id: this.editableRecipe.id } })
     }
   }
