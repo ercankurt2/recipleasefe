@@ -5,6 +5,7 @@
     <div class="card-body">
       <h5 class="card-title">{{ recipe.title }}</h5>
       <p class="card-text">{{ recipe.beschreibung }}</p>
+      <router-link :to="`/recipe/${recipe.id}`">Details ansehen</router-link>
     </div>
   </div>
 </template>

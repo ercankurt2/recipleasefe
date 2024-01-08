@@ -9,7 +9,7 @@
 <script>
 export default {
   name: 'RecipeDetailView',
-  data() {
+  data () {
     return {
       // Beispiel-Datenstruktur
       recipe: {
@@ -18,15 +18,14 @@ export default {
         beschreibung: 'Dies ist eine Beispielbeschreibung.',
         rezeptID: 1
       }
-    };
+    }
   },
   methods: {
-    getPicture(recipe) {
-
+    getPicture (recipe) {
       if (recipe.rezeptID === 1) {
-        return require('../assets/kartoffelsalat.png');
+        return require('../assets/kartoffelsalat.png')
       } else if (recipe.rezeptID === 2) {
-        return require('../assets/test.png');
+        return require('../assets/test.png')
       }
     }
   }
