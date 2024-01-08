@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import RecipesView from '../views/RecipesView.vue'
 import RecipeDetailView from '../components/RecipeDetailView.vue'
+import RecipeEditView from '@/components/RecipeEditView.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/recipe/:id', // Pfad mit Rezept-ID als Parameter
     name: 'RecipeDetail',
     component: RecipeDetailView
+  },
+  {
+    path: '/recipe-edit/:id',
+    name: 'RecipeEdit',
+    component: RecipeEditView
   }
 ]
 

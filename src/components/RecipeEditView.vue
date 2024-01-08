@@ -1,42 +1,49 @@
 <template>
-  <div class="recipe-detail">
-    <h1>{{ recipe.title }}</h1>
-    <img :src="getPicture(recipe)" alt="Bild des Rezepts" class="recipe-image">
+  <div class="recipe-edit">
+    <h1>Rezept Bearbeiten: {{ editableRecipe.title }}</h1>
 
-    <div class="additional-info">
-      <p><strong>Zubereitungszeit:</strong> {{ recipe.zubereitungszeit }}</p>
-      <p><strong>Schwierigkeitsgrad:</strong> {{ recipe.schwierigkeitsgrad }}</p>
-    </div>
+    <form @submit.prevent="saveRecipe">
+      <div>
+        <label for="title">Titel:</label>
+        <input id="title" v-model="editableRecipe.title">
+      </div>
+      <div>
+        <label for="description">Beschreibung:</label>
+        <textarea id="description" v-model="editableRecipe.beschreibung"></textarea>
+      </div>
+      <div>
+        <label for="zutaten">Zutaten:</label>
+        <textarea id="zutaten" v-model="editableRecipe.zutaten"></textarea>
+      </div>
+      <div>
+        <label for="schritte">Zubereitungsschritte:</label>
+        <textarea id="schritte" v-model="editableRecipe.zubereitungsschritte"></textarea>
+      </div>
+      <div>
+        <label for="zeit">Zubereitungszeit:</label>
+        <input id="zeit" v-model="editableRecipe.zubereitungszeit">
+      </div>
+      <div>
+        <label for="grad">Schwierigkeitsgrad:</label>
+        <select id="grad" v-model="editableRecipe.schwierigkeitsgrad">
+          <option value="Leicht">Leicht</option>
+          <option value="Mittel">Mittel</option>
+          <option value="Schwer">Schwer</option>
+        </select>
+      </div>
 
-    <div class="description-section">
-      <h2>Beschreibung</h2>
-      <p>{{ recipe.beschreibung }}</p>
-    </div>
-
-    <div class="ingredients-section">
-      <h2>Zutaten</h2>
-      <ul>
-        <li v-for="(zutat, index) in recipe.zutaten" :key="index">{{ zutat }}</li>
-      </ul>
-    </div>
-
-    <div class="preparation-section">
-      <h2>Zubereitungsschritte</h2>
-      <ol>
-        <li v-for="(schritt, index) in recipe.zubereitungsschritte" :key="index">{{ schritt }}</li>
-      </ol>
-    </div>
-
-    <button @click="editRecipe">Bearbeiten</button>
+      <button type="submit">Speichern</button>
+      <router-link to="/">Abbrechen</router-link>
+    </form>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'RecipeDetailView',
+  name: 'RecipeEditView',
   data () {
     return {
-      recipe: {
+      editableRecipe: {
         id: 1,
         title: 'Beispielrezept',
         zubereitungszeit: '30 Minuten',
@@ -73,56 +80,14 @@ export default {
     }
   },
   methods: {
-    getPicture (recipe) {
-      if (recipe.rezeptID === 1) {
-        return require('../assets/kartoffelsalat.png')
-      } else if (recipe.rezeptID === 2) {
-        return require('../assets/test.png')
-      }
-    },
-    editRecipe () {
-      this.$router.push({ name: 'RecipeEdit', params: { id: this.recipe.id } })
+    saveRecipe () {
+      // Logik zum Speichern der Änderungen
+      this.$router.push({ name: 'RecipeDetail', params: { id: this.editableRecipe.id } })
     }
   }
 }
 </script>
 
-<style scoped>
-.recipe-detail {
-  text-align: center;
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-}
-
-.recipe-image {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 20px;
-}
-
-.description-section, .ingredients-section, .preparation-section {
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.description-section h2, .ingredients-section h2, .preparation-section h2 {
-  font-size: 1.5em;
-  color: #4a4a4a;
-}
-
-ul, ol {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 10px;
-  font-size: 1.1em;
-}
-
-.additional-info p {
-  font-size: 1.1em;
-  margin-bottom: 5px;
-}
+<style>
+/* CSS-Stile für das Bearbeitungsformular */
 </style>
