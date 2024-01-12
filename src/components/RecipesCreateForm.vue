@@ -17,7 +17,7 @@
             Der Titel sieht gut aus!
           </div>
           <div class="invalid-feedback">
-            Bitte geben Sie einen Titel ein.
+            Bitte gib einen Titel ein.
           </div>
         </div>
         <div class="mb-3">
@@ -27,7 +27,27 @@
             Die Beschreibung sieht gut aus!
           </div>
           <div class="invalid-feedback">
-            Bitte geben Sie eine Beschreibung ein.
+            Bitte gib eine Beschreibung ein.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="schwierigkeitsgrad" class="form-label">Schwierigkeitsgrad</label>
+          <input type="text" class="form-control" id="schwierigkeitsgrad" v-model="schwierigkeitsgrad" required>
+          <div class="valid-feedback">
+            Der Schwierigkeitsgrad sieht gut aus!
+          </div>
+          <div class="invalid-feedback">
+            Bitte gib einen Schwierigkeitsgrad ein.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="zubereitungszeit" class="form-label">Zubereitungszeit</label>
+          <input type="text" class="form-control" id="zubereitungszeit" v-model="zubereitungszeit" required>
+          <div class="valid-feedback">
+            Die Zubereitungszeit sieht gut aus!
+          </div>
+          <div class="invalid-feedback">
+            Bitte gib eine Zubereitungszeit ein.
           </div>
         </div>
         <div v-if="this.serverValidationMessages">
@@ -53,12 +73,18 @@ export default {
     return {
       title: '',
       beschreibung: '',
+      schwierigkeitsgrad: '',
+      zubereitungszeit: '',
       serverValidationMessages: []
     }
   },
   emits: ['created'],
   methods: {
     createRezept () {
+      console.log('Titel: ' + this.title)
+      console.log('Beschreibung: ' + this.beschreibung)
+      console.log('Schwierigkeitsgrad: ' + this.schwierigkeitsgrad)
+      console.log('Zubereitungszeit: ' + this.zubereitungszeit)
       const valid = this.validate()
       if (valid) {
         const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/rezept'
@@ -68,7 +94,9 @@ export default {
 
         const payload = JSON.stringify({
           title: this.title,
-          beschreibung: this.beschreibung
+          beschreibung: this.beschreibung,
+          schwierigkeitsgrad: this.schwierigkeitsgrad,
+          zubereitungszeit: this.zubereitungszeit
         })
 
         const requestOptions = {
@@ -79,7 +107,13 @@ export default {
         }
 
         fetch(endpoint, requestOptions)
-          .then(response => response.text())
+          .then(response => {
+            console.log('response', response)
+            return response.text()
+          })
+          .then(text => {
+            console.log('response text', text)
+          })
           .catch(error => console.log('error', error))
       }
     },
