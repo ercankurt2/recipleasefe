@@ -1,6 +1,6 @@
 <template>
   <!-- Bootstrap Navbar in Anlehnung an: https://getbootstrap.com/docs/5.3/components/navbar/ -->
-  <nav class="navbar">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">ReciPlease</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,7 @@ export default { name: 'Navbar' }
 <style scoped>
 .navbar {
   display: flex; /* Aktiviert Flexbox für dieses Element */
-  align-items: center; /* Zentriert die Elemente vertikal im Container */
+  align-items: center; /* Zentriert die Elemente im Container */
   justify-content: flex-start; /* Ausrichtung der Elemente am Anfang des Containers (links) */
   padding: 5px;  /* Entfernt fast den ganzen Innenabstand */
   margin: 5px;   /* Entfernt fast den ganzen Außenabstand */

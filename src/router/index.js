@@ -2,8 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import RecipesView from '../views/RecipesView.vue'
-import RecipeDetailView from '../components/RecipeDetailView.vue'
-import RecipeEditView from '@/components/RecipeEditView.vue'
+import RecipeDetailView from '../views/RecipeDetailView.vue'
+import RecipeEditView from '@/views/RecipeEditView.vue'
 
 const routes = [
   {
