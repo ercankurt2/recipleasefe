@@ -1,6 +1,6 @@
 <template>
-<navbar></navbar>
-<router-view></router-view>
+  <Navbar></Navbar>
+  <router-view @update-recipe="handleRecipeUpdate"></router-view>
 </template>
 
 <script>
@@ -8,7 +8,25 @@ import Navbar from '@/components/Navbar.vue'
 
 export default {
   name: 'App',
-  components: { Navbar }
+  components: {
+    Navbar
+  },
+  data () {
+    return {
+
+      recipes: []
+    }
+  },
+  methods: {
+    handleRecipeUpdate (updatedRecipe) {
+      const index = this.recipes.findIndex(recipe => recipe.id === updatedRecipe.id)
+      if (index !== -1) {
+        this.$set(this.recipes, index, updatedRecipe)
+      } else {
+        this.recipes.push(updatedRecipe)
+      }
+    }
+  }
 }
 </script>
 
