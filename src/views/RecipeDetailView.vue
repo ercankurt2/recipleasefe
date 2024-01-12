@@ -27,7 +27,7 @@
       </ol>
     </div>
 
-    <button @click="editRecipe">Bearbeiten</button>
+    <button class="btn btn-primary" @click="editRecipe">Bearbeiten</button>
   </div>
 </template>
 
@@ -89,40 +89,43 @@ export default {
 
 <style scoped>
 .recipe-detail {
-  text-align: center;
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
+  background: linear-gradient(to right, #D8BFD8, #3636e5); /* Setzt einen linearen Farbübergang von helllila zu blau */
+  text-align: center; /* Zentriert den Text innerhalb des Elements */
+  margin: auto; /* Zentriert das Element horizontal */
+  margin-top: 60px; /* Fügt einen oberen Rand von 60px hinzu, um Überschneidungen zu vermeiden */
+  padding: 20px; /* Fügt einen Innenabstand von 20px hinzu */
+  max-width: 1000px; /* Begrenzt die maximale Breite auf 1000px */
 }
 
 .recipe-image {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 20px;
+  max-width: 100%; /* Stellt sicher, dass das Bild nicht breiter als sein Container ist */
+  height: auto; /* Behält das Seitenverhältnis des Bildes bei */
+  margin-bottom: 20px; /* Fügt einen unteren Rand hinzu */
 }
 
 .description-section, .ingredients-section, .preparation-section {
-  text-align: left;
-  margin-bottom: 20px;
+  text-align: left; /* Textausrichtung links */
+  margin-bottom: 20px; /* Fügt einen unteren Rand hinzu */
 }
 
 .description-section h2, .ingredients-section h2, .preparation-section h2 {
-  font-size: 1.5em;
-  color: #4a4a4a;
+  font-size: 1.5em; /* Setzt die Schriftgröße auf 1.5em */
+  color: #4a4a4a; /* Setzt die Schriftfarbe auf ein dunkles Grau */
+  font-weight: bold; /* Macht den Text fett */
 }
 
 ul, ol {
-  list-style-type: none;
-  padding: 0;
+  list-style-type: none; /* Entfernt Aufzählungszeichen */
+  padding: 0; /* Entfernt den linken Innenabstand */
 }
 
 li {
-  margin-bottom: 10px;
-  font-size: 1.1em;
+  margin-bottom: 10px; /* Fügt einen unteren Rand hinzu */
+  font-size: 1.1em; /* Setzt die Schriftgröße auf 1.1em */
 }
 
 .additional-info p {
-  font-size: 1.1em;
-  margin-bottom: 5px;
+  font-size: 1.1em; /* Setzt die Schriftgröße auf 1.1em */
+  margin-bottom: 5px; /* Fügt einen unteren Rand hinzu */
 }
 </style>

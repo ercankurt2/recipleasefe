@@ -5,7 +5,7 @@
     <div class="card-body">
       <h5 class="card-title">{{ recipe.title }}</h5>
       <p class="card-text">{{ recipe.beschreibung }}</p>
-      <router-link :to="`/recipe/${recipe.id}`">Details ansehen</router-link>
+      <button class="btn btn-primary" @click="$router.push(`/recipe/${recipe.id}`)">Details ansehen</button>
     </div>
   </div>
 </template>
@@ -31,5 +31,7 @@ export default {
 </script>
 
 <style scoped>
-
+.card {
+  background-color: #f5f5f5; /* Hintergrundfarbe ändern */
+}
 </style>

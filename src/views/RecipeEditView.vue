@@ -4,27 +4,27 @@
 
     <form @submit.prevent="saveRecipe">
       <div>
-        <label for="title">Titel:</label>
+        <h3>Titel</h3>
         <input id="title" v-model="editableRecipe.title">
       </div>
       <div>
-        <label for="description">Beschreibung:</label>
+        <h3>Beschreibung</h3>
         <textarea id="description" v-model="editableRecipe.beschreibung"></textarea>
       </div>
       <div>
-        <label for="zutaten">Zutaten:</label>
+        <h3>Zutaten</h3>
         <textarea id="zutaten" v-model="editableRecipe.zutaten"></textarea>
       </div>
       <div>
-        <label for="schritte">Zubereitungsschritte:</label>
+        <h3>Zubereitungsschritte</h3>
         <textarea id="schritte" v-model="editableRecipe.zubereitungsschritte"></textarea>
       </div>
       <div>
-        <label for="zeit">Zubereitungszeit:</label>
+        <h3>Zubereitungszeit</h3>
         <input id="zeit" v-model="editableRecipe.zubereitungszeit">
       </div>
       <div>
-        <label for="grad">Schwierigkeitsgrad:</label>
+        <h3>Schwierigkeitsgrad</h3>
         <select id="grad" v-model="editableRecipe.schwierigkeitsgrad">
           <option value="Leicht">Leicht</option>
           <option value="Mittel">Mittel</option>
@@ -32,8 +32,8 @@
         </select>
       </div>
 
-      <button type="submit">Speichern</button>
-      <router-link to="/">Abbrechen</router-link>
+      <button type="submit" class="btn btn-primary">Speichern</button>
+      <router-link to="/" class="btn btn-danger">Abbrechen</router-link>
     </form>
   </div>
 </template>
@@ -89,5 +89,38 @@ export default {
 </script>
 
 <style>
-/* CSS-Stile für das Bearbeitungsformular */
+.recipe-edit {
+  background: linear-gradient(to right, #D8BFD8, #3636e5); /* Setzt einen linearen Farbübergang von helllila zu blau */
+  text-align: center; /* Zentriert den Text innerhalb des Elements */
+  margin: auto; /* Zentriert das Element horizontal */
+  margin-top: 60px; /* Fügt einen oberen Rand von 60px hinzu, um Überschneidungen zu vermeiden */
+  padding: 20px; /* Fügt einen Innenabstand von 20px hinzu */
+  min-height: 100vh; /* Stellt sicher, dass der Hintergrund sich über die gesamte Seite erstreckt */
+}
+
+.recipe-edit form label {
+  display: block; /* Stellt das Label-Element als Block-Element dar */
+  margin-bottom: 10px; /* Fügt einen unteren Rand von 10px hinzu */
+}
+
+.recipe-edit h3 {
+  margin-bottom: 10px; /* Fügt einen unteren Rand von 10px hinzu */
+}
+
+.recipe-edit input, .recipe-edit textarea, .recipe-edit select {
+  background-color: #f0f0f0; /* Ändert die Hintergrundfarbe auf ein helles Grau */
+  border: none; /* Entfernt den Standard-Border */
+  border-radius: 5px; /* Rundet die Ecken ab */
+  padding: 10px; /* Fügt einen Innenabstand von 10px hinzu */
+  margin-bottom: 20px; /* Fügt einen unteren Rand von 20px hinzu */
+  width: 300px; /* Stellt sicher, dass alle Felder die selbe Breite haben */
+}
+
+.recipe-edit .btn {
+  margin-top: 20px; /* Fügt einen oberen Rand von 20px hinzu */
+}
+
+.recipe-edit .btn-primary {
+  margin-right: 10px; /* Fügt einen rechten Rand von 10px hinzu */
+}
 </style>

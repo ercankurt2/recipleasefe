@@ -1,9 +1,11 @@
 <template>
-  <h1>Rezepte</h1>
-  <div class="container-fluid">
-    <recipes-card-list :recipes="this.recipes"></recipes-card-list>
+  <div class="recipes">
+    <h1>Rezepte</h1>
+    <div class="container-fluid">
+        <recipes-card-list :recipes="this.recipes"></recipes-card-list>
+    </div>
+    <recipes-create-form @created="addRecipe"></recipes-create-form>
   </div>
-  <recipes-create-form @created="addRecipe"></recipes-create-form>
 </template>
 
 <script>
@@ -52,3 +54,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.recipes {
+  margin-top: 60px; /* Fügt einen oberen Rand von 60px hinzu, um Überschneidungen zu vermeiden */
+  background: linear-gradient(to right, #D8BFD8, #3636e5); /* Setzt einen linearen Farbübergang von helllila zu blau */
+  min-height: 100vh; /* Stellt sicher, dass der Hintergrund sich über die gesamte Seite erstreckt */
+}
+</style>
