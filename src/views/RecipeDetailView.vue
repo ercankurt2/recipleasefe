@@ -34,9 +34,6 @@
 <script>
 export default {
   name: 'RecipeDetailView',
-  props: {
-    updateRecipe: Object
-  },
   data () {
     return {
       recipe: {
@@ -73,11 +70,6 @@ export default {
         ],
         rezeptID: 1
       }
-    }
-  },
-  computed: {
-    recipeToShow () {
-      return this.updateRecipe || this.recipe
     }
   },
   methods: {
