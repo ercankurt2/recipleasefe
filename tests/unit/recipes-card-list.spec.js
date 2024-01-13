@@ -12,12 +12,12 @@ describe('Testing RecipesCardList.vue', () =>{
         recipes: [
           {
             id: 1,
-            title: 'Kartoffelsalat',
+            titel: 'Kartoffelsalat',
             beschreibung: 'lorem ipsum'
           },
           {
             id: 2,
-            title: 'Kürbissuppe',
+            titel: 'Kürbissuppe',
             beschreibung: 'lorem ipsum'
           }
         ]

@@ -11,8 +11,8 @@
     <div class="offcanvas-body">
       <form class="text-start needs-validation" id="recipes-create-form" novalidate>
         <div class="mb-3">
-          <label for="title" class="form-label">Titel</label>
-          <input type="text" class="form-control" id="title" v-model="title" required>
+          <label for="titel" class="form-label">Titel</label>
+          <input type="text" class="form-control" id="titel" v-model="titel" required>
           <div class="valid-feedback">
             Der Titel sieht gut aus!
           </div>
@@ -71,7 +71,7 @@ export default {
   name: 'RecipesCreateForm',
   data () {
     return {
-      title: '',
+      titel: '',
       beschreibung: '',
       schwierigkeitsgrad: '',
       zubereitungszeit: '',
@@ -81,7 +81,7 @@ export default {
   emits: ['created'],
   methods: {
     createRezept () {
-      console.log('Titel: ' + this.title)
+      console.log('Titel: ' + this.titel)
       console.log('Beschreibung: ' + this.beschreibung)
       console.log('Schwierigkeitsgrad: ' + this.schwierigkeitsgrad)
       console.log('Zubereitungszeit: ' + this.zubereitungszeit)
@@ -93,7 +93,7 @@ export default {
         headers.append('Content-Type', 'application/json')
 
         const payload = JSON.stringify({
-          title: this.title,
+          titel: this.titel,
           beschreibung: this.beschreibung,
           schwierigkeitsgrad: this.schwierigkeitsgrad,
           zubereitungszeit: this.zubereitungszeit

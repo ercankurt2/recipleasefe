@@ -1,11 +1,11 @@
 <template>
   <div class="recipe-edit">
-    <h1>Rezept Bearbeiten: {{ editableRecipe.title }}</h1>
+    <h1>Rezept Bearbeiten: {{ editableRecipe.titel }}</h1>
 
     <form @submit.prevent="saveRecipe">
       <div>
         <h3>Titel</h3>
-        <input id="title" v-model="editableRecipe.title">
+        <input id="titel" v-model="editableRecipe.titel">
       </div>
       <div>
         <h3>Beschreibung</h3>
@@ -45,7 +45,7 @@ export default {
     return {
       editableRecipe: {
         id: 1,
-        title: 'Beispielrezept',
+        titel: 'Beispielrezept',
         zubereitungszeit: '30 Minuten',
         schwierigkeitsgrad: 'Mittel',
         beschreibung: 'Dieser herzhafte Kartoffelsalat vereint die köstlichen Aromen von festkochenden Kartoffeln, würzigem Feta-Käse und knackigen roten Zwiebeln. ' +

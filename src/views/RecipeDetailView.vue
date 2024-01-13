@@ -1,6 +1,6 @@
 <template>
   <div class="recipe-detail">
-    <h1>{{ recipe.title }}</h1>
+    <h1>{{ recipe.titel }}</h1>
     <img :src="getPicture(recipe)" alt="Bild des Rezepts" class="recipe-image">
 
     <div class="additional-info">
@@ -38,7 +38,7 @@ export default {
     return {
       recipe: {
         id: 1,
-        title: 'Beispielrezept',
+        titel: 'Beispielrezept',
         zubereitungszeit: '30 Minuten',
         schwierigkeitsgrad: 'Mittel',
         beschreibung: 'Dieser herzhafte Kartoffelsalat vereint die köstlichen Aromen von festkochenden Kartoffeln, würzigem Feta-Käse und knackigen roten Zwiebeln. ' +

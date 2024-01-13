@@ -2,11 +2,11 @@ import { mount } from '@vue/test-utils'
 import RecipesCard from "@/components/RecipesCard.vue";
 
 describe('Testing RecipesCard.vue', () => {
-  it('should render title and beschreibung', () => {
+  it('should render titel and beschreibung', () => {
     //when
     const testRecipe = {
       id: 1,
-      title: "Kartoffelsalat",
+      titel: "Kartoffelsalat",
       beschreibung: "Lorem ipsum"
     };
     const wrapper = mount(RecipesCard,{
@@ -16,10 +16,10 @@ describe('Testing RecipesCard.vue', () => {
       });
 
     //then
-    const cardTitle = wrapper.find('.card-title')
+    const cardtitel = wrapper.find('.card-titel')
     const cardText = wrapper.find('.card-text');
 
-    expect(cardTitle.text()).toBe(testRecipe.title);
+    expect(cardtitel.text()).toBe(testRecipe.titel);
     expect(cardText.text()).toBe(testRecipe.beschreibung);
   });
 })
