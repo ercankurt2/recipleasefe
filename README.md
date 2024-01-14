@@ -1,32 +1,40 @@
 ReciPlease - Benutzerhandbuch
 
-Übersicht
+Übersicht:
+ReciPlease ist eine Webanwendung, die es Benutzern ermöglicht, Rezepte zu verwalten, grundlegende Informationen über das Projekt anzuzeigen, das Impressum des Unternehmens zu lesen und Kontakt aufzunehmen. Die App verfügt über fünf Navigationsseiten: "Home", "Rezepte", "Kontakt", "Projektinformationen" und "Impressum".
 
-ReciPlease ist eine Webanwendung, die es Benutzern ermöglicht, Rezepte zu verwalten, grundlegende Informationen über das Projekt anzuzeigen, das Impressum des Unternehmens zu lesen und Kontakt aufzunehmen. Die App verfügt über fünf Navigationsseiten: "HomeView", "AboutView", "RecipesView", "ImpressumView" und "ContactView".
+Navigationsseiten:
 
-Navigationsseiten
+Home
 
-HomeView
-Startseite: Wenn du die App öffnest, gelangst du zur "HomeView". Hier wirst du herzlich mit der Nachricht "Willkommen bei ReciPlease" begrüßt.
-
-AboutView
-Projektinformation: Wenn du zur "AboutView" navigierst, findest du grundlegende Informationen über das Projekt, sowie eine Zusammenfassung der verwendeten Technologien.
-
-RecipesView
-Rezeptübersicht: In der "RecipesView" werden die bereits hinzugefügten Rezepte mit Titel und Beschreibung angezeigt.
-Möglichkeiten in der "RecipesView"
-Neues Rezept hinzufügen: Klicke auf das Symbol mit dem Messer und der Gabel unten rechts, um ein neues Rezept hinzuzufügen. Fülle die vorgegebenen Felder aus und klicke auf "Speichern", um das Rezept hinzuzufügen. Du wirst dann zur "RecipesView" zurückgeleitet.
-Details ansehen: Klicke auf den "Details ansehen"-Button, um zur "RecipesDetailsView" zu gelangen, wo du alle Informationen des ausgewählten Rezepts siehst.
-Rezept bearbeiten: Du kannst ein Rezept bearbeiten, indem du auf den "Bearbeiten"-Button klickst. Ein neues Fenster öffnet sich, in dem du die Inhalte ändern kannst. Klicke anschließend auf "Speichern", um die Änderungen zu übernehmen, oder "Abbrechen", um zur "HomeView" zurückzukehren.
-
-ImpressumView
-Impressum anzeigen: Die "ImpressumView" enthält wichtige Informationen zum Unternehmen ReciPlease.
-
-ContactView
-Kontakt aufnehmen: In der "ContactView" hast du die Möglichkeit, Kontakt mit ReciPlease aufzunehmen. Hinterlege deine Anliegen, deinen Namen und deine E-Mail-Adresse und sende sie ab, um eine Nachricht an das Unternehmen zu senden.
+Startseite: Wenn du die App öffnest, gelangst du zum "Home". Hier wirst du herzlich mit der Nachricht "Willkommen bei ReciPlease!" begrüßt.
 
 
-Das war eine kurze Übersicht über die Navigationsseiten und die Funktionen der ReciPlease-App. Viel Spaß beim Verwalten von Rezepten und Erkunden der App!
+Rezepte
+
+Rezeptübersicht: Auf der Seite "Rezepte" werden die bereits hinzugefügten Rezepte mit u. a. Titel und Beschreibung angezeigt.
+Möglichkeiten auf der Seite "Rezepte":
+Neues Rezept hinzufügen: Klicke auf das Symbol mit dem Messer und der Gabel unten rechts, um ein neues Rezept hinzuzufügen. Fülle die vorgegebenen Felder aus und klicke auf "Speichern", um das Rezept hinzuzufügen. Du wirst dann zu "Rezepte" zurückgeleitet.
+Details ansehen: Klicke auf den "Details ansehen"-Button, um zur jeweiligen Detailseite des Rezepts zu gelangen, wo du alle Informationen des ausgewählten Rezepts siehst.
+Rezept bearbeiten: Du kannst ein Rezept bearbeiten, indem du auf den "Bearbeiten"-Button in der Detailansicht klickst. Ein neues Fenster öffnet sich, in dem du die Inhalte ändern kannst. Klicke anschließend auf "Speichern", um die Änderungen zu übernehmen, oder "Abbrechen", um zu "Home" zurückzukehren.
+
+
+Kontakt
+
+Kontakt aufnehmen: Auf der Seite "Kontakt" hast du die Möglichkeit, Kontakt mit ReciPlease aufzunehmen. Hinterlege deinen Namen, deine E-Mail-Adresse und natürlich eine Nachricht mit deinem Anliegen und sende das Formular ab, um eine Nachricht an das Unternehmen zu senden.
+
+
+Projektinformationen
+
+Projektinformation: Wenn du zu "Projektinformationen" navigierst, findest du grundlegende Informationen über das Projekt, sowie eine Zusammenfassung der verwendeten Technologien.
+
+
+Impressum
+
+Impressum anzeigen: Das "Impressum" enthält wichtige Informationen zum Unternehmen ReciPlease.
+
+
+Das war eine kurze Übersicht über die Navigationsseiten und die Funktionen der ReciPlease-App. Viel Spaß beim Verwalten von Rezepten und beim Erkunden der App!
 
 
 # recipleasefe
@@ -36,9 +44,9 @@ Das war eine kurze Übersicht über die Navigationsseiten und die Funktionen der
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Project start
 ```
-npm run serve
+npm run start
 ```
 
 ### Compiles and minifies for production
@@ -46,7 +54,7 @@ npm run serve
 npm run build
 ```
 
-### Run your unit tests
+### Run the unit tests
 ```
 npm run test:unit
 ```
