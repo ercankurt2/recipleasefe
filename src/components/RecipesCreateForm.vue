@@ -22,7 +22,7 @@
         </div>
         <div class="mb-3">
           <label for="beschreibung" class="form-label">Beschreibung (ggf. mit Zubereitungsschritten)</label>
-          <input type="text" class="form-control" id="beschreibung" v-model="beschreibung" required>
+          <textarea class="form-control" id="beschreibung" v-model="beschreibung" required></textarea>
           <div class="valid-feedback">
             Die Beschreibung sieht gut aus!
           </div>
@@ -42,7 +42,7 @@
         </div>
         <div class="mb-3">
           <label for="zutat" class="form-label">Zutaten</label>
-          <input type="text" class="form-control" id="zutat" v-model="zutat" required>
+          <textarea class="form-control" id="zutat" v-model="zutat" required></textarea>
           <div class="valid-feedback">
             Die Zutaten sehen gut aus!
           </div>
@@ -180,5 +180,28 @@ export default {
   right: 20px;
   padding: 10px 15px;
   border-radius: 30px;
+}
+
+/* Begrenzen Sie die Breite des Formulars und zentrieren Sie es horizontal */
+#recipes-create-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Erhöhen Sie die Ränder und Polsterung der Formularfelder */
+#recipes-create-form .form-control {
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+#recipes-create-form .form-control {
+  font-size: 1.1em;
+  color: #555;
+}
+
+/* Passen Sie die Hintergrundfarbe und den Rand der Formularfelder an */
+#recipes-create-form .form-control {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
 }
 </style>
