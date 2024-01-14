@@ -11,6 +11,8 @@
           <router-link class="nav-link" to="/">HomeView</router-link>
           <router-link class="nav-link" to="/about">AboutView</router-link>
           <router-link class="nav-link" to="/recipes">RecipesView</router-link>
+          <router-link class="nav-link" to="/impressum">ImpressumView</router-link>
+          <router-link class="nav-link" to="/contact">ContactView</router-link>
         </div>
       </div>
     </div>

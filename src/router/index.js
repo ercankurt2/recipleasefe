@@ -3,7 +3,9 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import RecipesView from '../views/RecipesView.vue'
 import RecipeDetailView from '../views/RecipeDetailView.vue'
-import RecipeEditView from '@/views/RecipeEditView.vue'
+import RecipeEditView from '../views/RecipeEditView.vue'
+import ImpressumView from '../views/ImpressumView.vue'
+import ContactView from '../views/ContactView.vue'
 
 const routes = [
   {
@@ -30,6 +32,16 @@ const routes = [
     path: '/recipe-edit/:id',
     name: 'RecipeEdit',
     component: RecipeEditView
+  },
+  {
+    path: '/impressum', // Pfad für die Impressum-Seite
+    name: 'impressum',
+    component: ImpressumView
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: ContactView
   }
 ]
 
