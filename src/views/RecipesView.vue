@@ -14,35 +14,35 @@ import RecipesCardList from '@/components/RecipesCardList.vue'
 import RecipesCreateForm from '@/components/RecipesCreateForm.vue'
 
 export default {
-  name: 'RecipesView',
+  name: 'RecipesView', // Der Name der Vue-Komponente
   components: {
-    RecipesCardList,
-    RecipesCreateForm
+    RecipesCardList, // Importierte Komponente für die Anzeige der Rezeptliste
+    RecipesCreateForm // Importierte Komponente für das Formular zum Erstellen neuer Rezepte
   },
   data () {
     return {
-      recipes: []
+      recipes: [] // Datenobjekt, das die Liste der Rezepte speichert
     }
   },
   methods: {
-    addRecipe (recipeLocation) {
-      axios.get(`${process.env.VUE_APP_BACKEND_BASE_URL}${recipeLocation}`)
+    addRecipe (recipeLocation) { // Methode zum Hinzufügen eines neuen Rezepts
+      axios.get(`${process.env.VUE_APP_BACKEND_BASE_URL}${recipeLocation}`) // HTTP GET-Anfrage an den Server, um die Daten des neuen Rezepts zu holen
         .then(response => {
-          this.recipes.push(response.data)
+          this.recipes.push(response.data) // Fügt das neue Rezept zur Liste der Rezepte hinzu
         })
         .catch(error => {
-          console.error('Es gab einen Fehler!', error)
+          console.error('Es gab einen Fehler!', error) // Fehlerbehandlung, falls die Anfrage fehlschlägt
         })
     }
   },
-  mounted () {
-    axios.get(`${process.env.VUE_APP_BACKEND_BASE_URL}/api/rezept`)
+  mounted () { // Lifecycle-Hook, der aufgerufen wird, nachdem die Komponente eingehängt (in das DOM eingefügt) wurde
+    axios.get(`${process.env.VUE_APP_BACKEND_BASE_URL}/api/rezept`) // HTTP GET-Anfrage an den Server, um die Liste der Rezepte zu holen
       .then(response => {
-        console.log(response.data)
-        this.recipes = response.data
+        console.log(response.data) // Loggt die Antwort des Servers
+        this.recipes = response.data // Speichert die Liste der Rezepte im Datenobjekt
       })
       .catch(error => {
-        console.error('Es gab einen Fehler!', error)
+        console.error('Es gab einen Fehler!', error) // Fehlerbehandlung, falls die Anfrage fehlschlägt
       })
   }
 }

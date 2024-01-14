@@ -7,17 +7,17 @@
 </template>
 
 <script>
-import RecipesCard from '@/components/RecipesCard.vue'
+import RecipesCard from '@/components/RecipesCard.vue' // Importiert die RecipesCard-Komponente
 
 export default {
-  name: 'RecipesCardList',
+  name: 'RecipesCardList', // Der Name der Vue-Komponente
   components: {
-    RecipesCard
+    RecipesCard // Registriert die RecipesCard-Komponente, damit sie in der Vorlage verwendet werden kann
   },
   props: {
     recipes: {
-      type: Array,
-      required: true
+      type: Array, // Der Typ der Prop 'recipes' ist ein Array
+      required: true // Diese Prop ist erforderlich. Vue wird eine Warnung ausgeben, wenn sie nicht bereitgestellt wird
     }
   }
 }

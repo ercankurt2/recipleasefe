@@ -10,9 +10,9 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'HomeView',
+  name: 'HomeView', // Der Name der Vue-Komponente
   components: {
-    HelloWorld
+    HelloWorld // Importierte Komponente HelloWorld, die in dieser Komponente verwendet wird
   }
 }
 </script>

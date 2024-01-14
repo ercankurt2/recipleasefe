@@ -51,7 +51,6 @@
 /* Definiert den Stil für den gesamten Inhalt der AboutView */
 .about {
   font-family: Arial, sans-serif; /* Setzt die Schriftart auf Arial */
-  color: #333; /* Setzt die Textfarbe auf dunkelgrau */
   background: linear-gradient(to right, #D8BFD8, #3636e5); /* Setzt einen linearen Farbübergang von helllila zu blau */
   min-height: 100vh; /* Stellt sicher, dass der Hintergrund sich über die gesamte Seite erstreckt */
   padding: 20px; /* Fügt einen Innenabstand von 20px hinzu */

@@ -6,9 +6,9 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'HelloWorld', // Der Name der Vue-Komponente
   props: {
-    msg: String
+    msg: String // Eine Prop namens 'msg', die einen String erwartet
   }
 }
 </script>

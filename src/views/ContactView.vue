@@ -21,40 +21,41 @@
 </template>
 
 <script>
-import axios from 'axios' // Importiere die Axios-Bibliothek
+import axios from 'axios' // Importiert die Axios-Bibliothek für HTTP-Anfragen
 
 export default {
-  name: 'Kontaktformular',
+  name: 'Kontaktformular', // Der Name der Vue-Komponente
   data () {
     return {
-      name: '',
-      email: '',
-      message: ''
+      name: '', // Datenobjekt für den Namen des Benutzers
+      email: '', // Datenobjekt für die E-Mail-Adresse des Benutzers
+      message: '' // Datenobjekt für die Nachricht des Benutzers
     }
   },
   methods: {
-    async sendContactForm () {
+    async sendContactForm () { // Asynchrone Methode zum Senden des Kontaktformulars
       try {
         // Sende eine POST-Anfrage an den Server mit den Formulardaten
         const response = await axios.post('http://example.com/contact', {
-          name: this.name,
-          email: this.email,
-          message: this.message
+          name: this.name, // Der Name des Benutzers
+          email: this.email, // Die E-Mail-Adresse des Benutzers
+          message: this.message // Die Nachricht des Benutzers
         })
 
         // Überprüfe den Statuscode der Antwort
-        if (response.status === 200) {
-          // Wenn die Anfrage erfolgreich war, setze die Formulardaten zurück
+        if (response.status === 200) { // Wenn der Statuscode 200 (OK) ist
+          // Setze die Formulardaten zurück
           this.name = ''
           this.email = ''
           this.message = ''
+          // Zeige eine Erfolgsmeldung an
           alert('Deine Nachricht wurde erfolgreich gesendet!')
-        } else {
-          // Wenn die Anfrage fehlschlägt, zeige eine Fehlermeldung an
+        } else { // Wenn der Statuscode nicht 200 ist
+          // Zeige eine Fehlermeldung an
           alert('Es gab einen Fehler beim Senden der Nachricht. Bitte versuche es später erneut.')
         }
-      } catch (error) {
-        // Wenn ein Netzwerkfehler auftritt, zeige eine Fehlermeldung an
+      } catch (error) { // Wenn ein Fehler auftritt
+        // Zeige eine Fehlermeldung an
         alert('Es gab einen Netzwerkfehler beim Senden der Nachricht. Bitte versuche es später erneut.')
       }
     }
@@ -68,7 +69,6 @@ export default {
   padding: 20px;
   text-align: center; /* Zentriert den Inhalt horizontal */
   background: linear-gradient(to right, #D8BFD8, #3636e5); /* Setzt einen linearen Farbübergang von helllila zu blau */
-  color: white; /* Textfarbe auf weiß ändern */
   border-radius: 10px; /* Abgerundete Ecken */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Schatten um das Formular */
   width: 400px; /* Setzt die Breite des Formulars auf 400px */

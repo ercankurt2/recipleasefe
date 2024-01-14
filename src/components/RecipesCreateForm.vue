@@ -83,34 +83,35 @@
 
 <script>
 export default {
-  name: 'RecipesCreateForm',
+  name: 'RecipesCreateForm', // Der Name der Vue-Komponente
   data () {
     return {
-      titel: '',
-      beschreibung: '',
-      zutat: '',
-      zubereitungszeit: '',
-      schwierigkeitsgrad: '',
-      serverValidationMessages: []
+      titel: '', // Datenfeld für den Titel des Rezepts
+      beschreibung: '', // Datenfeld für die Beschreibung des Rezepts
+      zutat: '', // Datenfeld für die Zutaten des Rezepts
+      zubereitungszeit: '', // Datenfeld für die Zubereitungszeit des Rezepts
+      schwierigkeitsgrad: '', // Datenfeld für den Schwierigkeitsgrad des Rezepts
+      serverValidationMessages: [] // Datenfeld für Servervalidierungsnachrichten
     }
   },
-  emits: ['created'],
+  emits: ['created'], // Diese Komponente emittiert ein 'created' Ereignis
   methods: {
     createRezept () {
-      // Zusätzliche Konsolenausgabe zur Überprüfung
-      console.log('Titel: ' + this.titel)
-      console.log('Beschreibung: ' + this.beschreibung)
-      console.log('Zutat: ' + this.zutat)
-      console.log('Zubereitungszeit: ' + this.zubereitungszeit)
-      console.log('Schwierigkeitsgrad: ' + this.schwierigkeitsgrad)
-      const valid = this.validate()
+      // Methode zum Erstellen eines neuen Rezepts
+      console.log('Titel: ' + this.titel) // Konsolenausgabe zur Überprüfung
+      console.log('Beschreibung: ' + this.beschreibung) // Konsolenausgabe zur Überprüfung
+      console.log('Zutat: ' + this.zutat) // Konsolenausgabe zur Überprüfung
+      console.log('Zubereitungszeit: ' + this.zubereitungszeit) // Konsolenausgabe zur Überprüfung
+      console.log('Schwierigkeitsgrad: ' + this.schwierigkeitsgrad) // Konsolenausgabe zur Überprüfung
+      const valid = this.validate() // Überprüft die Formularvalidierung
       if (valid) {
-        const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/rezept'
+        // Wenn das Formular gültig ist, wird ein POST-Anfrage an den Server gesendet
+        const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/rezept' // Endpunkt der API
 
-        const headers = new Headers()
-        headers.append('Content-Type', 'application/json')
+        const headers = new Headers() // Erstellt neue Header
+        headers.append('Content-Type', 'application/json') // Fügt den Content-Type-Header hinzu
 
-        const payload = JSON.stringify({
+        const payload = JSON.stringify({ // Erstellt das Payload für die Anfrage
           titel: this.titel,
           beschreibung: this.beschreibung,
           zutat: this.zutat,
@@ -118,30 +119,31 @@ export default {
           schwierigkeitsgrad: this.schwierigkeitsgrad
         })
 
-        const requestOptions = {
+        const requestOptions = { // Optionen für die Fetch-Anfrage
           method: 'POST',
           headers: headers,
           body: payload,
           redirect: 'follow'
         }
 
-        fetch(endpoint, requestOptions)
+        fetch(endpoint, requestOptions) // Sendet die Anfrage
           .then(response => {
-            console.log('response', response)
+            console.log('response', response) // Konsolenausgabe der Antwort
             return response.text()
           })
           .then(text => {
-            console.log('response text', text)
+            console.log('response text', text) // Konsolenausgabe des Antworttexts
           })
-          .catch(error => console.log('error', error))
+          .catch(error => console.log('error', error)) // Fehlerbehandlung
       }
     },
     validate () {
+      // Methode zur Validierung des Formulars
       let valid = true
 
-      const forms = document.querySelectorAll('.needs-validation')
+      const forms = document.querySelectorAll('.needs-validation') // Wählt alle Formulare mit der Klasse 'needs-validation' aus
 
-      // Loop over them and prevent submission
+      // Durchläuft alle Formulare und verhindert die Einreichung, wenn sie ungültig sind
       Array.prototype.slice.call(forms)
         .forEach(function (form) {
           form.addEventListener('submit', function (event) {
@@ -151,10 +153,10 @@ export default {
               event.stopPropagation()
             }
 
-            form.classList.add('was-validated')
+            form.classList.add('was-validated') // Fügt die Klasse 'was-validated' hinzu, um die Validierungsstyles anzuzeigen
           }, false)
         })
-      return valid
+      return valid // Gibt zurück, ob das Formular gültig ist oder nicht
     }
   }
 }

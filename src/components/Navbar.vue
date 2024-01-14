@@ -20,7 +20,7 @@
 </template>
 
 <script>
-export default { name: 'Navbar' }
+export default { name: 'Navbar' } // Der Name der Vue-Komponente
 </script>
 
 <style scoped>

@@ -12,12 +12,13 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios' // Importiert die Axios-Bibliothek für HTTP-Anfragen
+
 export default {
   props: {
     recipe: {
-      type: Object,
-      required: true
+      type: Object, // Der Typ der Prop 'recipe' ist ein Objekt
+      required: true // Diese Prop ist erforderlich. Vue wird eine Warnung ausgeben, wenn sie nicht bereitgestellt wird
     }
   },
   methods: {
@@ -50,11 +51,15 @@ export default {
       }
     },
     loescheRezept (rezeptId) {
+      // Methode zum Löschen eines Rezepts
+      // Sendet eine DELETE-Anfrage an den Server mit der ID des zu löschenden Rezepts
       axios.delete(`${process.env.VUE_APP_BACKEND_BASE_URL}/api/rezept/${rezeptId}`)
         .then(response => {
+          // Bei erfolgreicher Anfrage wird eine Bestätigungsnachricht in der Konsole angezeigt
           console.log('Rezept erfolgreich gelöscht')
         })
         .catch(error => {
+          // Fehlerbehandlung, falls die Anfrage fehlschlägt
           console.error('Fehler beim Löschen des Rezepts:', error)
         })
     }

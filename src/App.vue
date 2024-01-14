@@ -1,14 +1,13 @@
 <template>
-  <navbar></navbar>
-  <router-view></router-view>
+  <navbar></navbar> <!-- Nutzt die Navbar-Komponente -->
+  <router-view></router-view> <!-- Platzhalter für die Komponenten, die durch Vue Router geladen werden -->
 </template>
 
 <script>
-import Navbar from '@/components/Navbar.vue'
-
+import Navbar from '@/components/Navbar.vue' // Importiert die Navbar-Komponente aus dem Verzeichnis '@/components/'
 export default {
-  name: 'App',
-  components: { Navbar }
+  name: 'App', // Der Name der Vue-Komponente
+  components: { Navbar } // Registriert die Navbar-Komponente, damit sie in der Vorlage verwendet werden kann
 }
 </script>
 

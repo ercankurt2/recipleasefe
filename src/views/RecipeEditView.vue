@@ -39,33 +39,37 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios' // Importiert die Axios-Bibliothek für HTTP-Anfragen
 
 export default {
-  name: 'RecipeEditView',
+  name: 'RecipeEditView', // Der Name der Vue-Komponente
   data () {
     return {
-      editableRecipe: null
+      editableRecipe: null // Datenobjekt, das das bearbeitbare Rezept speichert
     }
   },
   methods: {
-    saveRecipe () {
+    saveRecipe () { // Methode zum Speichern des bearbeiteten Rezepts
+      // Sendet eine PUT-Anfrage an den Server mit den aktualisierten Rezeptdaten
       axios.put(`${process.env.VUE_APP_BACKEND_BASE_URL}/api/rezept/${this.editableRecipe.rezeptID}`, this.editableRecipe)
         .then(() => {
+          // Leitet den Benutzer zur Detailansicht des aktualisierten Rezepts weiter
           this.$router.push({ name: 'RecipeDetail', params: { id: this.editableRecipe.rezeptID } })
         })
         .catch(error => {
+          // Fehlerbehandlung, falls die Anfrage fehlschlägt
           console.error('Fehler beim Aktualisieren des Rezepts:', error)
         })
     }
   },
-  created () {
-    const id = this.$route.params.id
+  created () { // Lifecycle-Hook, der aufgerufen wird, nachdem die Instanz erstellt wurde
+    const id = this.$route.params.id // Holt die Rezept-ID aus den Routenparametern
     axios.get(`${process.env.VUE_APP_BACKEND_BASE_URL}/api/rezept/${id}`)
       .then(response => {
-        this.editableRecipe = response.data
+        this.editableRecipe = response.data // Speichert die Daten des Rezepts im Datenobjekt
       })
       .catch(error => {
+        // Fehlerbehandlung, falls die Anfrage fehlschlägt
         console.error('Fehler beim Abrufen des Rezepts:', error)
       })
   }

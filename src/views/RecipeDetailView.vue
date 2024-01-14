@@ -21,10 +21,10 @@
 import axios from 'axios'
 
 export default {
-  name: 'RecipeDetailView',
+  name: 'RecipeDetailView', // Der Name der Vue-Komponente
   data () {
     return {
-      recipe: null
+      recipe: null // Datenobjekt, das das Rezept speichert
     }
   },
   methods: {
@@ -56,17 +56,21 @@ export default {
         return require('../assets/pizza_salami.png')
       }
     },
+    // Methode zum Bearbeiten des aktuellen Rezepts
     editRecipe () {
       this.$router.push({ name: 'RecipeEdit', params: { id: this.recipe.rezeptID } })
     }
   },
   created () {
-    const id = this.$route.params.id
+    // Lifecycle-Hook, der aufgerufen wird, nachdem die Instanz erstellt wurde
+    const id = this.$route.params.id // Holt die Rezept-ID aus den Routenparametern
+    // Sendet eine GET-Anfrage an den Server, um die Daten für das spezifische Rezept zu holen
     axios.get(`${process.env.VUE_APP_BACKEND_BASE_URL}/api/rezept/${id}`)
       .then(response => {
-        this.recipe = response.data
+        this.recipe = response.data // Speichert die Daten des Rezepts im Datenobjekt
       })
       .catch(error => {
+        // Fehlerbehandlung, falls die Anfrage fehlschlägt
         console.error('Fehler beim Abrufen des Rezepts:', error)
       })
   }

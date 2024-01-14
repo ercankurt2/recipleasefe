@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'ImpressumView'
+  name: 'ImpressumView' // Der Name der Vue-Komponente
 }
 </script>
 
@@ -25,7 +25,6 @@ export default {
   margin-top: 60px; /* Fügt einen oberen Rand von 60px hinzu, um Überschneidungen zu vermeiden */
   background: linear-gradient(to right, #D8BFD8, #3636e5); /* Setzt einen linearen Farbübergang von helllila zu blau */
   min-height: 100vh; /* Stellt sicher, dass der Hintergrund sich über die gesamte Seite erstreckt */
-  padding: 20px;
-  color: white;
+  padding: 20px; /* Fügt einen Innenabstand von 20px hinzu */
 }
 </style>
