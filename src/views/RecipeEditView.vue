@@ -12,14 +12,6 @@
         <textarea id="description" v-model="editableRecipe.beschreibung"></textarea>
       </div>
       <div>
-        <h3>Zutaten</h3>
-        <textarea id="zutaten" v-model="editableRecipe.zutaten"></textarea>
-      </div>
-      <div>
-        <h3>Zubereitungsschritte</h3>
-        <textarea id="schritte" v-model="editableRecipe.zubereitungsschritte"></textarea>
-      </div>
-      <div>
         <h3>Zubereitungszeit</h3>
         <input id="zeit" v-model="editableRecipe.zubereitungszeit">
       </div>
@@ -98,10 +90,16 @@ export default {
 .recipe-edit input, .recipe-edit textarea, .recipe-edit select {
   background-color: #f0f0f0; /* Ändert die Hintergrundfarbe auf ein helles Grau */
   border: none; /* Entfernt den Standard-Border */
-  border-radius: 5px; /* Rundet die Ecken ab */
+  border-radius: 10px; /* Rundet die Ecken stärker ab */
   padding: 10px; /* Fügt einen Innenabstand von 10px hinzu */
   margin-bottom: 20px; /* Fügt einen unteren Rand von 20px hinzu */
   width: 300px; /* Stellt sicher, dass alle Felder die selbe Breite haben */
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2); /* Fügt einen leichten Schatten hinzu */
+  transition: all 0.3s ease-in-out; /* Fügt einen sanften Übergangseffekt hinzu */
+}
+
+.recipe-edit input:focus, .recipe-edit textarea:focus, .recipe-edit select:focus {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* Vergrößert den Schatten, wenn das Feld fokussiert ist */
 }
 
 .recipe-edit .btn {
