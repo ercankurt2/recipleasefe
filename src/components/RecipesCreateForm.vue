@@ -31,16 +31,6 @@
           </div>
         </div>
         <div class="mb-3">
-          <label for="ernaehrungsinformationen" class="form-label">Kalorienanzahl</label>
-          <input type="text" class="form-control" id="ernaehrungsinformationen" v-model="ernaehrungsinformationen" required>
-          <div class="valid-feedback">
-            Die Kalorienanzahl sehen gut aus!
-          </div>
-          <div class="invalid-feedback">
-            Bitte gib eine Kalorienanzahl ein.
-          </div>
-        </div>
-        <div class="mb-3">
           <label for="zutat" class="form-label">Zutaten</label>
           <textarea class="form-control" id="zutat" v-model="zutat" required></textarea>
           <div class="valid-feedback">
@@ -98,7 +88,6 @@ export default {
     return {
       titel: '',
       beschreibung: '',
-      ernaehrungsinformationen: '',
       zutat: '',
       zubereitungszeit: '',
       schwierigkeitsgrad: '',
@@ -111,7 +100,6 @@ export default {
       // Zusätzliche Konsolenausgabe zur Überprüfung
       console.log('Titel: ' + this.titel)
       console.log('Beschreibung: ' + this.beschreibung)
-      console.log('Ernährungsinformationen: ' + this.ernaehrungsinformationen)
       console.log('Zutat: ' + this.zutat)
       console.log('Zubereitungszeit: ' + this.zubereitungszeit)
       console.log('Schwierigkeitsgrad: ' + this.schwierigkeitsgrad)
@@ -125,7 +113,6 @@ export default {
         const payload = JSON.stringify({
           titel: this.titel,
           beschreibung: this.beschreibung,
-          ernaehrungsinformationen: this.ernaehrungsinformationen,
           zutat: this.zutat,
           zubereitungszeit: this.zubereitungszeit,
           schwierigkeitsgrad: this.schwierigkeitsgrad

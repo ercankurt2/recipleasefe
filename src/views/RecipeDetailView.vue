@@ -9,22 +9,8 @@
     </div>
 
     <div class="description-section">
-      <h2>Beschreibung</h2>
+      <h2>Beschreibung (ggf. mit Zubereitungsschritten)</h2>
       <p>{{ recipe.beschreibung }}</p>
-    </div>
-
-    <div class="ingredients-section">
-      <h2>Zutaten</h2>
-      <ul>
-        <li v-for="(zutat, index) in recipe.zutaten" :key="index">{{ zutat }}</li>
-      </ul>
-    </div>
-
-    <div class="preparation-section">
-      <h2>Zubereitungsschritte</h2>
-      <ol>
-        <li v-for="(schritt, index) in recipe.zubereitungsschritte" :key="index">{{ schritt }}</li>
-      </ol>
     </div>
 
     <button class="btn btn-primary" @click="editRecipe">Bearbeiten</button>
@@ -50,7 +36,7 @@ export default {
       }
     },
     editRecipe () {
-      this.$router.push({ name: 'RecipeEdit', params: { id: this.recipe.id } })
+      this.$router.push({ name: 'RecipeEdit', params: { id: this.recipe.rezeptID } })
     }
   },
   created () {
