@@ -21,23 +21,33 @@
           </div>
         </div>
         <div class="mb-3">
-          <label for="zutat" class="form-label">Zutat</label>
-          <input type="text" class="form-control" id="zutat" v-model="zutat" required>
-          <div class="valid-feedback">
-            Die Zutat sieht gut aus!
-          </div>
-          <div class="invalid-feedback">
-            Bitte gib eine Zutat ein.
-          </div>
-        </div>
-        <div class="mb-3">
-          <label for="beschreibung" class="form-label">Beschreibung</label>
+          <label for="beschreibung" class="form-label">Beschreibung (ggf. mit Zubereitungsschritten)</label>
           <input type="text" class="form-control" id="beschreibung" v-model="beschreibung" required>
           <div class="valid-feedback">
             Die Beschreibung sieht gut aus!
           </div>
           <div class="invalid-feedback">
             Bitte gib eine Beschreibung ein.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="ernaehrungsinformationen" class="form-label">Kalorienanzahl</label>
+          <input type="text" class="form-control" id="ernaehrungsinformationen" v-model="ernaehrungsinformationen" required>
+          <div class="valid-feedback">
+            Die Kalorienanzahl sehen gut aus!
+          </div>
+          <div class="invalid-feedback">
+            Bitte gib eine Kalorienanzahl ein.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="zutat" class="form-label">Zutaten</label>
+          <input type="text" class="form-control" id="zutat" v-model="zutat" required>
+          <div class="valid-feedback">
+            Die Zutaten sehen gut aus!
+          </div>
+          <div class="invalid-feedback">
+            Bitte gib mindestens eine Zutat ein.
           </div>
         </div>
         <div class="mb-3">
@@ -87,21 +97,24 @@ export default {
   data () {
     return {
       titel: '',
-      zutat: '',
       beschreibung: '',
-      schwierigkeitsgrad: '',
+      ernaehrungsinformationen: '',
+      zutat: '',
       zubereitungszeit: '',
+      schwierigkeitsgrad: '',
       serverValidationMessages: []
     }
   },
   emits: ['created'],
   methods: {
     createRezept () {
+      // Zusätzliche Konsolenausgabe zur Überprüfung
       console.log('Titel: ' + this.titel)
-      console.log('Zutat: ' + this.zutat)
       console.log('Beschreibung: ' + this.beschreibung)
-      console.log('Schwierigkeitsgrad: ' + this.schwierigkeitsgrad)
+      console.log('Ernährungsinformationen: ' + this.ernaehrungsinformationen)
+      console.log('Zutat: ' + this.zutat)
       console.log('Zubereitungszeit: ' + this.zubereitungszeit)
+      console.log('Schwierigkeitsgrad: ' + this.schwierigkeitsgrad)
       const valid = this.validate()
       if (valid) {
         const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/rezept'
@@ -111,10 +124,11 @@ export default {
 
         const payload = JSON.stringify({
           titel: this.titel,
-          zutat: this.zutat,
           beschreibung: this.beschreibung,
-          schwierigkeitsgrad: this.schwierigkeitsgrad,
-          zubereitungszeit: this.zubereitungszeit
+          ernaehrungsinformationen: this.ernaehrungsinformationen,
+          zutat: this.zutat,
+          zubereitungszeit: this.zubereitungszeit,
+          schwierigkeitsgrad: this.schwierigkeitsgrad
         })
 
         const requestOptions = {
