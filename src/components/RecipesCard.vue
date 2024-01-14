@@ -69,8 +69,38 @@ export default {
 
 <style scoped>
 .card {
-  background-color: #f5f5f5; /* Hintergrundfarbe ändern */
-  max-height: 500px; /* Maximale Höhe der Karte festlegen */
-  overflow: auto; /* Scrollbalken hinzufügen, wenn der Inhalt die maximale Höhe überschreitet */
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  max-height: 500px;
+  overflow: auto;
+}
+
+.card:hover {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Anpassung der Scrollbar */
+.card::-webkit-scrollbar {
+  width: 10px; /* Breite der Scrollbar */
+}
+
+.card::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Hintergrundfarbe der Scrollbar */
+  border-radius: 10px; /* Rundung der Scrollbar */
+}
+
+.card::-webkit-scrollbar-thumb {
+  background: #888; /* Farbe der Scrollbar */
+  border-radius: 10px; /* Rundung der Scrollbar */
+}
+
+.card::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Farbe der Scrollbar beim Hovern */
+}
+
+.card .btn-primary {
+  margin-right: 10px; /* Fügt einen rechten Rand von 10px hinzu */
 }
 </style>
