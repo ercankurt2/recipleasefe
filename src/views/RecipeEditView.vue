@@ -87,6 +87,22 @@ export default {
   margin-bottom: 10px; /* Fügt einen unteren Rand von 10px hinzu */
 }
 
+.recipe-edit textarea {
+  height: 200px; /* Setzt die Höhe des Textbereichs auf 200px */
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 300px;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.recipe-edit textarea:focus {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
 .recipe-edit input, .recipe-edit textarea, .recipe-edit select {
   background-color: #f0f0f0; /* Ändert die Hintergrundfarbe auf ein helles Grau */
   border: none; /* Entfernt den Standard-Border */
