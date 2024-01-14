@@ -33,13 +33,6 @@ export default {
         .catch(error => {
           console.error('Es gab einen Fehler!', error)
         })
-    },
-    getPicture (recipe) {
-      if (recipe.rezeptID === 1) {
-        return require('../assets/kartoffelsalat.png')
-      } else if (recipe.rezeptID === 2) {
-        return require('../assets/test.png')
-      }
     }
   },
   mounted () {

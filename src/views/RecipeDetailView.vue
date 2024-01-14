@@ -28,11 +28,32 @@ export default {
     }
   },
   methods: {
+    // Bilder für die Rezepte hart reinprogrammiert
     getPicture (recipe) {
       if (recipe.rezeptID === 1) {
         return require('../assets/kartoffelsalat.png')
-      } else if (recipe.rezeptID === 2) {
-        return require('../assets/test.png')
+      } else if (recipe.rezeptID === 49) {
+        return require('../assets/paella.png')
+      } else if (recipe.rezeptID === 50) {
+        return require('../assets/reis_basmati.png')
+      } else if (recipe.rezeptID === 51) {
+        return require('../assets/kuchen.png')
+      } else if (recipe.rezeptID === 52) {
+        return require('../assets/hamburger_pommes.png')
+      } else if (recipe.rezeptID === 53) {
+        return require('../assets/adana_kebab.png')
+      } else if (recipe.rezeptID === 54) {
+        return require('../assets/pancakes.png')
+      } else if (recipe.rezeptID === 55) {
+        return require('../assets/pasta_lorem.png')
+      } else if (recipe.rezeptID === 56) {
+        return require('../assets/pizza_mozzarella.png')
+      } else if (recipe.rezeptID === 57) {
+        return require('../assets/tacos.png')
+      } else if (recipe.rezeptID === 58) {
+        return require('../assets/waffel.png')
+      } else if (recipe.rezeptID === 59) {
+        return require('../assets/pizza_salami.png')
       }
     },
     editRecipe () {
