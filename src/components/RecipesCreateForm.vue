@@ -42,12 +42,17 @@
         </div>
         <div class="mb-3">
           <label for="schwierigkeitsgrad" class="form-label">Schwierigkeitsgrad</label>
-          <input type="text" class="form-control" id="schwierigkeitsgrad" v-model="schwierigkeitsgrad" required>
+          <select class="form-control" id="schwierigkeitsgrad" v-model="schwierigkeitsgrad" required>
+            <option disabled value="">Bitte auswählen</option>
+            <option>leicht</option>
+            <option>mittel</option>
+            <option>schwer</option>
+          </select>
           <div class="valid-feedback">
             Der Schwierigkeitsgrad sieht gut aus!
           </div>
           <div class="invalid-feedback">
-            Bitte gib einen Schwierigkeitsgrad ein.
+            Bitte wähle einen Schwierigkeitsgrad aus.
           </div>
         </div>
         <div class="mb-3">

@@ -8,11 +8,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <router-link class="nav-link" to="/">HomeView</router-link>
-          <router-link class="nav-link" to="/about">AboutView</router-link>
-          <router-link class="nav-link" to="/recipes">RecipesView</router-link>
-          <router-link class="nav-link" to="/impressum">ImpressumView</router-link>
-          <router-link class="nav-link" to="/contact">ContactView</router-link>
+          <router-link class="nav-link" to="/">Home</router-link>
+          <router-link class="nav-link" to="/recipes">Rezepte</router-link>
+          <router-link class="nav-link" to="/contact">Kontakt</router-link>
+          <router-link class="nav-link" to="/about">Projektinformationen</router-link>
+          <router-link class="nav-link" to="/impressum">Impressum</router-link>
         </div>
       </div>
     </div>

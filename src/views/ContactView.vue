@@ -3,15 +3,15 @@
     <h1>Kontaktformular</h1>
     <form @submit.prevent="sendContactForm">
       <div class="form-group">
-        <label for="name">Name:</label>
+        <label for="name">Name</label>
         <input type="text" id="name" v-model="name" required>
       </div>
       <div class="form-group">
-        <label for="email">E-Mail:</label>
+        <label for="email">E-Mail</label>
         <input type="email" id="email" v-model="email" required>
       </div>
       <div class="form-group">
-        <label for="message">Nachricht:</label>
+        <label for="message">Nachricht</label>
         <textarea id="message" v-model="message" rows="6" required></textarea>
         <!-- Erhöhe die Anzahl der Zeilen auf 6 -->
       </div>
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import axios from 'axios' // Importiere die Axios-Bibliothek
+
 export default {
   name: 'Kontaktformular',
   data () {
@@ -31,8 +33,30 @@ export default {
     }
   },
   methods: {
-    sendContactForm () {
-      // eine Axios-Anfrage an  Server senden.
+    async sendContactForm () {
+      try {
+        // Sende eine POST-Anfrage an den Server mit den Formulardaten
+        const response = await axios.post('http://example.com/contact', {
+          name: this.name,
+          email: this.email,
+          message: this.message
+        })
+
+        // Überprüfe den Statuscode der Antwort
+        if (response.status === 200) {
+          // Wenn die Anfrage erfolgreich war, setze die Formulardaten zurück
+          this.name = ''
+          this.email = ''
+          this.message = ''
+          alert('Deine Nachricht wurde erfolgreich gesendet!')
+        } else {
+          // Wenn die Anfrage fehlschlägt, zeige eine Fehlermeldung an
+          alert('Es gab einen Fehler beim Senden der Nachricht. Bitte versuche es später erneut.')
+        }
+      } catch (error) {
+        // Wenn ein Netzwerkfehler auftritt, zeige eine Fehlermeldung an
+        alert('Es gab einen Netzwerkfehler beim Senden der Nachricht. Bitte versuche es später erneut.')
+      }
     }
   }
 }
@@ -47,7 +71,7 @@ export default {
   color: white; /* Textfarbe auf weiß ändern */
   border-radius: 10px; /* Abgerundete Ecken */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Schatten um das Formular */
-  max-width: 1000px; /* Erhöhe die maximale Breite des Formulars */
+  width: 400px; /* Setzt die Breite des Formulars auf 400px */
   margin: 0 auto; /* Zentriert das Formular horizontal auf der Seite */
   position: absolute; /* Positioniert das Formular absolut */
   top: 50%; /* Verschiebt das Formular um die Hälfte der Bildschirmhöhe nach unten */

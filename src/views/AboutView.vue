@@ -20,7 +20,7 @@
 
     <div class="box">
       <h2>Kontakt</h2>
-      <p>Für weitere Informationen oder Fragen, kontaktiere uns bitte unter info@reciplease.de oder folgen Sie uns auf unseren sozialen Medien.</p>
+      <p>Für weitere Informationen oder Fragen, kontaktiere uns bitte über unser Kontakt-Formulars oder unter info@reciplease.de.</p>
     </div>
 
     <div class="box">
