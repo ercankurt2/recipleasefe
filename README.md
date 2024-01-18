@@ -1,9 +1,14 @@
-ReciPlease - Benutzerhandbuch
+# ReciPlease - Benutzerhandbuch
+Das Projekt wurde auf Heroku deployed und ist unter den nachfolgenden Links zugänglich:
 
-Übersicht:
+Backend: https://reciplease1-f8141cc52992.herokuapp.com/
+
+Frontend (die eigentliche Anwendung): https://reciplease1-fe-e3c474f21ef1.herokuapp.com/
+
+# Übersicht:
 ReciPlease ist eine Webanwendung, die es Benutzern ermöglicht, Rezepte zu verwalten, grundlegende Informationen über das Projekt anzuzeigen, das Impressum des Unternehmens zu lesen und Kontakt aufzunehmen. Die App verfügt über fünf Navigationsseiten: "Home", "Rezepte", "Kontakt", "Projektinformationen" und "Impressum".
 
-Navigationsseiten:
+# Navigationsseiten:
 
 Home
 
